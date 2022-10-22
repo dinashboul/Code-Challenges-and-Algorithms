@@ -4,6 +4,9 @@
 ## white board 
 ![whiteboard](./whitebard.png)
 
+## how long this assignment took you in the comments box
+ #### it takes 5 hours
+ 
 <div><p>Write a function to <strong>delete a node</strong> in a singly-linked list. You will <strong>not</strong> be given access to the <code>head</code> of the list, instead you will be given access to <strong>the node to be deleted</strong> directly.</p>
 
 <p>It is <strong>guaranteed</strong> that the node to be deleted is <strong>not a tail node</strong> in the list.</p>
