@@ -25,11 +25,10 @@ class LinkedList:
     def printAll(self):
         nodes=[]
         if self.head is None:
-            print("The linked list is empty")
+            return("The linked list is empty")
         else:
             current = self.head
             while current is not None:
-                # print(current.value)
                 nodes.append(current.value)
                 current = current.next
         
@@ -44,20 +43,19 @@ class Node:
 '''
 methode delete to remove specific node 
 '''
-class Delete_node :
-    def delete_node(self,node):
-  
-        prev = Node(node)
-  
-        if(node == None):
-            return
-        else:
-            while(node.next != None):
-                node.value = node.next.value
-                prev = node
-                node = node.next
-  
-            prev.next = None
+
+def delete_node(node):
+    if node == None:
+      return 
+    else:
+      if node.next == None:
+        print("Last node can't be remove tail")
+        return
+      node.value = node.next.value
+      node.next = node.next.next
+     
+
+
         
 
 if __name__ == "__main__":
@@ -75,8 +73,7 @@ if __name__ == "__main__":
     linkedList1.append(node4)
 
     print(linkedList1.printAll())    
-    delete_node1=Delete_node()
-    d_node=delete_node1.delete_node(node3)
-    print('list after deleting: ')
-    linkedList1.printAll()
-    print(linkedList1.printAll())
+    
+    delete_node(node4)
+    
+    print("list after deleting",linkedList1.printAll())
