@@ -48,15 +48,15 @@ class Linked_list():
     '''
        Remove_nth_node method: remove the nth node from the end of the list and return its head.
      '''
-    def Remove_nth_node(self, head, n):
-        fast = head
-        slow = head
+    def Remove_nth_node(self, n):
+        fast = self.head
+        slow = self.head
                                                                                 
         for i in range(n):
             fast = fast.next
     
         if not fast:
-            return head.next
+            return self.head.next
 
         
 
@@ -65,7 +65,7 @@ class Linked_list():
             slow = slow.next
  
         slow.next = slow.next.next
-        return head
+        return self.head
 
 
             
@@ -84,7 +84,7 @@ if __name__=="__main__":
     node1=Node("4")
     ll1.append_node(node1)
 
-    ll1.Remove_nth_node(ll1.head, 2)
+    ll1.Remove_nth_node(3)
     print("the nth value is------>",ll1.print_all()
 )
     
