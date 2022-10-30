@@ -60,5 +60,5 @@ def test_Print_Middle_even():
 def test_empty_linked_list():
     linkedList3 = LinkedList()
     linkedList3.Print_Middle()
-    assert linkedList3.printAll()==' empty'
+    assert linkedList3.printAll()=='empty'
 

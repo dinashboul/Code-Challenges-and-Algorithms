@@ -34,7 +34,7 @@ class LinkedList:
         ''' printAll method to print the nodes from middle to none'''
         nodes=[]
         if self.head is None:
-            return(" empty")
+            return("empty")
         else:
             current = self.Print_Middle()
             while current is not None:

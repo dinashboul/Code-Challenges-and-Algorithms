@@ -9,4 +9,5 @@ IT TAKES 2 HOURS
 
  **Add any additional comments to your grader about your process or any difficulties you may have had with the assignment.**
 
- the difficultes its about return the all node without using the for loop
+ -the difficultes its about return the all node without using the for loop
+
