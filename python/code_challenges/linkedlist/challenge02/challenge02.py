@@ -1,5 +1,9 @@
 # Write here the code challenge solution
 
+from os import link
+from platform import node
+
+
 class Node:
     def __init__(self,value):
         self.value = value
@@ -10,6 +14,34 @@ Linked List class :Its class to create  a linked list
 class LinkedList:
     def __init__(self):
         self.head = None
+
+    def __str__(self):
+        '''its to print all the nodes in the list'''
+        nodes=""
+        if self.head is None:
+            nodes="empty"
+        else:
+            temp=self.head
+            while temp:
+                nodes+=f"{temp.value}>"
+                temp=temp.next
+            nodes+="None"
+        return nodes
+
+
+    def printAll(self):
+
+        ''' printAll method to print the nodes from middle to none'''
+        nodes=[]
+        if self.head is None:
+            return(" empty")
+        else:
+            current = self.Print_Middle()
+            while current is not None:
+                nodes.append(current.value)
+                current = current.next
+            return nodes
+        
     '''
     method append to add new node to the linked list
     '''
@@ -27,28 +59,20 @@ class LinkedList:
     >>> If there are two middle nodes, will return the second middle node.
     '''
 
+    
     def Print_Middle(self):
-        nodes=[]
-        curr = self.head
-        my_len = 0
-        while curr:
-            curr = curr.next
-            my_len = my_len + 1
+        slow = self.head
+        fast = self.head
+        while fast:
+             fast=fast.next
+             if fast:
+                fast=fast.next
+             else:
+                break
+             slow = slow.next 
+        return slow
 
-        curr =self.head
-        for i in range((my_len )//2):
-            curr = curr.next
-
-        while curr!=None:
-            if my_len % 2 == 0:
-                 nodes.append(curr.value)
-                 curr=curr.next
-            else:
-                nodes.append(curr.value)
-                curr=curr.next  
-      
-        return nodes
-
+    
 
 
 if __name__ == "__main__":
@@ -74,6 +98,5 @@ if __name__ == "__main__":
     node7= Node("G")
     linkedList1.append(node7)
 
-    
-    # print("the middle node is ",linkedList1.Print_Middle())
-    print("the middle is",linkedList1.Print_Middle())
+    # print(linkedList1)
+    print(linkedList1.printAll())
