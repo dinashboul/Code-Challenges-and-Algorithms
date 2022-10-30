@@ -27,8 +27,8 @@ def test_Print_Middle_odd():
 
     node7= Node("7")
     linkedList1.append(node7)
-
-    assert linkedList1.Print_Middle()==['4','5','6','7']
+    linkedList1.Print_Middle()
+    assert linkedList1.printAll()==['4', '5', '6', '7']
 
 
     '''
@@ -53,4 +53,12 @@ def test_Print_Middle_even():
 
     node6 = Node("6")
     linkedList2.append(node6)
-    assert linkedList2.Print_Middle()==['4','5','6']
+
+    linkedList2.Print_Middle()
+    assert linkedList2.printAll()==['4', '5', '6']
+
+def test_empty_linked_list():
+    linkedList3 = LinkedList()
+    linkedList3.Print_Middle()
+    assert linkedList3.printAll()=='empty'
+
