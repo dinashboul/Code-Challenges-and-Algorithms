@@ -15,7 +15,7 @@ Linked List class :Its class to create  a linked list
 class Linked_list():
     def __init__(self):
         self.head=None
-    
+        self.next=None
     '''
     method append to add new node to the linked list
     '''
@@ -49,22 +49,35 @@ class Linked_list():
        Remove_nth_node method: remove the nth node from the end of the list and return its head.
      '''
     def Remove_nth_node(self, n):
-        fast = self.head
-        slow = self.head
-                                                                                
-        for i in range(n):
-            fast = fast.next
-    
-        if not fast:
-            return self.head.next
-
+        countList = self.head
+        count = 1
         
+        if self.head==None:
+            return
+        while countList.next is not None:
+            count+=1
+            countList = countList.next
+        if n> count :
+            print(f"please enter number less than or equal {count}")
+            return
+        countList = self.head
+        temp = self.head
+        i = 0
 
-        while fast.next:
-            fast = fast.next
-            slow = slow.next
- 
-        slow.next = slow.next.next
+        while i<=count:
+            if(i!= count-n):
+                temp = countList
+                countList = countList.next
+                i+=1
+            else:
+                if temp.next != None and countList!=self.head:
+                    temp.next = countList.next
+                    countList.next=None
+                    break
+                else:
+                    self.head = self.head.next
+                    countList.next=None
+                    return self.head
         return self.head
 
 
@@ -74,7 +87,7 @@ if __name__=="__main__":
     ll1=Linked_list()    
     node1=Node("1")
     ll1.append_node(node1)
-
+    
     node1=Node("2")
     ll1.append_node(node1)
 
@@ -83,10 +96,13 @@ if __name__=="__main__":
 
     node1=Node("4")
     ll1.append_node(node1)
+    node1=Node("5")
+    ll1.append_node(node1)
 
     ll1.Remove_nth_node(3)
-    print("the nth value is------>",ll1.print_all()
-)
+   
+    
+    print("the nth value is------>",ll1.print_all())
     
     
     

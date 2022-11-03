@@ -1,4 +1,7 @@
-![white_board](./whiteboard333.png)
+![white_board](./white-3__new.png)
 
  how long this assignment took you in the comments box?
-  it takes 3 hours
+  it takes 4 hours
+
+- difficulties you may have had with the assignment.
+no difficulties
