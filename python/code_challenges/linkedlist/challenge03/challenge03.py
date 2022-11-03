@@ -1,7 +1,6 @@
 # Write here the code challenge solution
 from multiprocessing.sharedctypes import Value
-from os import cpu_count
-from platform import node
+
 
 
 class Node():
