@@ -33,6 +33,6 @@ if __name__=="__main__":
     preorder=[1,2,3,4,5,6,7]
     inorder=[3,2,4,1,6,5,7]
     bt=Ordering()
-    print(bt.BT_traversal(preorder,inorder))
+    print(bt.BT_traversal(preorder,inorder).left.left.value)
     # bt.BT_traversal(preorder,inorder)
 
