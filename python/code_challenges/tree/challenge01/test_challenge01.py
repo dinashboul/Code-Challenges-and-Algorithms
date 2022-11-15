@@ -1,19 +1,15 @@
 # Write your test here
 import pytest
-from challenge01 import Node,Ordering
-
+from challenge01 import *
 def test_Bt_traversal():
-    order=Ordering()
-    preorder=[3,9,20,15,7]
-    inorder=[9,3,15,20,7]
-    actual=order.BT_traversal(preorder,inorder).value
-    expected=3
+    tree=Tree()
+    tree.root = Node(6)
+    tree.root.left = Node(7)
+    tree.root.right = Node(8)
+    tree.root.right.left = Node(9)
+    tree.root.right.right = Node(10)
+    bt=BT_traversal(Preorder_traversal(tree.root),Inorder_traversal(tree.root))
+    actual=breadth_taversal(bt)
+    expected=[6, 7, 8, 9, 10]
     assert actual == expected
 
-def test_one_element():
-    order1=Ordering()
-    preorder=[3]
-    inorder=[3]
-    actual=order1.BT_traversal(preorder,inorder)
-    expected=3
-    assert actual == expected
