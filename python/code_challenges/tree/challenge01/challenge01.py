@@ -1,6 +1,4 @@
 # Write here the code challenge solution
-from collections import deque
-import queue
 
 class Node :
     def __init__(self,value) :
@@ -12,27 +10,67 @@ class Tree:
     def __init__(self):
         self.root = None
 
-class Ordering:
+
+list_in=[]
+
+def Inorder_traversal(root):
+    if root.left is not None:
+       Inorder_traversal(root.left)
+    if root is not None:
+        list_in.append(root.value)
+    if root.right is not None:
+        Inorder_traversal(root.right)
+    return list_in
+
+list_pre=[]
+def Preorder_traversal(root):
+    if root is not None:
+        list_pre.append(root.value)
+    if root.left is not None:
+       Preorder_traversal(root.left)
+    if root.right is not None:
+        Preorder_traversal(root.right)
+    return list_pre
     
-    def BT_traversal(self,preorder,inorder):
-      
-        if not inorder or not preorder:
+def BT_traversal(preorder,inorder):
+    
+    if not preorder or not inorder:
             return None
-        if len(inorder)==1 or len(preorder)==1:
-            return preorder[0]
-        
-        root =Node(preorder[0])
-        mid =inorder.index(preorder[0])
-        root.left= self.BT_traversal(preorder[1:mid+1],inorder[:mid])
-        root.right = self.BT_traversal(preorder[mid+1:],inorder[mid+1:])
+    if len(preorder)==1 and len(inorder)==1:
+        root=Node(preorder[0]) 
         return root
 
+    mid = preorder.pop(0)
+    root = Node(mid)
+    node = inorder.index(mid)
+    root.left = BT_traversal(preorder, inorder[:node])
+    root.right = BT_traversal(preorder, inorder[node+1:])  
+    return root
 
+def breadth_taversal(root):
+    new_list = []
+    if not root:
+        new_list.append(None)
+        return
+    q = [root]
+    while len(q) > 0:
+        node = q.pop(0)
+        if node.left  :
+            q.append(node.left)
+        
+        if node.right :
+            q.append(node.right)
+        new_list.append(node.value)
+    
+    return new_list
 
 if __name__=="__main__":
-    preorder=[1,2,3,4,5,6,7]
-    inorder=[3,2,4,1,6,5,7]
-    bt=Ordering()
-    print(bt.BT_traversal(preorder,inorder).left.left.value)
-    # bt.BT_traversal(preorder,inorder)
-
+    
+    tree=Tree()
+    tree.root = Node(3)
+    tree.root.left = Node(2)
+    tree.root.right = Node(4)
+    tree.root.right.left = Node(1)
+    tree.root.right.right = Node(5)
+    bt=BT_traversal(Preorder_traversal(tree.root),Inorder_traversal(tree.root))
+    print(breadth_taversal(bt))
