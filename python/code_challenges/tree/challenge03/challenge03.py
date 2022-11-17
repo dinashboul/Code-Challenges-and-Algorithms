@@ -10,6 +10,10 @@ class Node :
 
 
 def Sorted_to_Bts(num):
+    '''
+        This method is to convert integer array to height balanced
+        binary search tree 
+    '''
     length=len(num)
     if  not length:
         return None
@@ -25,6 +29,10 @@ def Sorted_to_Bts(num):
 
         
 def breadth_taversal(root):
+    '''
+        This method is to print a list of the tree that
+        comming from Sorted_to_Bts method by breadth_traversal
+    '''
     if root is None:
         return
     queue = []

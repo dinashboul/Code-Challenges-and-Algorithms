@@ -1,4 +1,4 @@
-![image](./wihteboard3.png)
+![image](./white3.png)
 
  - how long this assignment took you in the comments box.:
  - it takes 4 hours
